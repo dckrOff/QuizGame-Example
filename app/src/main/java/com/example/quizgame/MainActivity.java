@@ -1,16 +1,14 @@
 package com.example.quizgame;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
+import android.view.Window;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -19,8 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     Random random;
     int currentScore = 0, questionAttempted = 1, currentPos;
-    private TextView questionTv, questionNumberTv;
-    private Button option1Btn, option2Btn, option3Btn, option4Btn;
+    private TextView questionTv, questionNumberTv, option1Btn, option2Btn, option3Btn, option4Btn;
     private ArrayList<QuizModel> quizModelsArrayList;
 
     @Override
@@ -48,33 +45,34 @@ public class MainActivity extends AppCompatActivity {
         setDataToViews(currentPos);
     }
 
-    @SuppressLint("SetTextI18n")
-    private void showBottomSheet() {
-        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(MainActivity.this);
-        View bottomSheetView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.score_bottom_sheet, (LinearLayout) findViewById(R.id.idLLScore));
-        TextView scoreTv = bottomSheetView.findViewById(R.id.idTvScore);
-        Button restartQuizBtn = bottomSheetView.findViewById(R.id.idBtnRestart);
-        scoreTv.setText("Your score is: " + currentScore);
-        restartQuizBtn.setOnClickListener(new View.OnClickListener() {
+    private void alertDialog() {
+
+        final Dialog dialog = new Dialog(MainActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.congratulation_custom_dialog);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        TextView currAnswers = dialog.findViewById(R.id.correctAnswers);
+        currAnswers.setText("To'gri javoblar soni: " + currentScore);
+        TextView restartBtn = dialog.findViewById(R.id.restartBtn);
+        restartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 currentPos = random.nextInt(quizModelsArrayList.size());
-                setDataToViews(currentPos);
                 questionAttempted = 1;
                 currentScore = 0;
-                bottomSheetDialog.dismiss();
+                setDataToViews(currentPos);
+                dialog.dismiss();
             }
         });
-        bottomSheetDialog.setCancelable(false);
-        bottomSheetDialog.setContentView(bottomSheetView);
-        bottomSheetDialog.show();
+        dialog.show();
     }
 
     @SuppressLint("SetTextI18n")
     private void setDataToViews(int currentPos) {
-        questionNumberTv.setText("Question Attempted : " + questionAttempted + "/10");
+        questionNumberTv.setText(questionAttempted + "/10");
         if (questionAttempted == 10) {
-            showBottomSheet();
+            alertDialog();
         } else {
             questionTv.setText(quizModelsArrayList.get(currentPos).getQuestion());
             option1Btn.setText(quizModelsArrayList.get(currentPos).getOption1());
@@ -143,6 +141,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
 }

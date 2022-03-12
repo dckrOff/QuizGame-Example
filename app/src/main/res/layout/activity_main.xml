@@ -6,11 +6,101 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+    <TextView
+        android:id="@+id/idTvQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/idTvQuestionAttempted"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="412dp"
+        android:gravity="center"
+        android:text="Questions"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/idTvQuestionAttempted"
+        android:layout_marginTop="350dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/idBtnOprion1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="Salom"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/idBtnOprion2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_two"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="salom 2"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/idBtnOprion3"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_three"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="salom 3"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/idBtnOprion4"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_four"
+
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="salom 4"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/idTvQuestionAttempted"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="21dp"
         android:gravity="center"
         android:text="Number of Questions"
         android:textAlignment="center"
@@ -21,70 +111,5 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/idTvQuestion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/idTvQuestionAttempted"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:text="Questions"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/idTvQuestion"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/idBtnOprion1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@color/purple_200"
-            android:padding="4dp"
-            android:text="Oprtion 1"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/idBtnOprion2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@color/purple_200"
-            android:padding="4dp"
-            android:text="Oprtion 2"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/idBtnOprion3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@color/purple_200"
-            android:padding="4dp"
-            android:text="Oprtion 3"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/idBtnOprion4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@color/purple_200"
-            android:padding="4dp"
-            android:text="Oprtion 4"
-            android:textAllCaps="false" />
-
-    </LinearLayout>
 
 </RelativeLayout>

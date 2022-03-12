@@ -37,4 +37,8 @@ dependencies {
 
     // for add gif
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.22'
+
+    // for sweet dialog
+    implementation 'com.github.f0ris.sweetalert:library:1.5.6'
+
 }
