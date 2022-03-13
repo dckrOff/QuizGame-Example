@@ -32,7 +32,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private void changeGif() {
         Random rn = new Random();
-        gifNumber = rn.nextInt(10);
+        gifNumber = 1 + rn.nextInt(9);
         switch (gifNumber) {
             case 1:
                 splashGif.setBackgroundResource(R.color.splash1);
@@ -77,7 +77,6 @@ public class SplashActivity extends AppCompatActivity {
             default:
                 break;
         }
-
     }
 
     private void intentToNextActivity() {
