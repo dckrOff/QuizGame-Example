@@ -2,6 +2,7 @@ package com.example.quizgame;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
@@ -17,8 +18,9 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class MainActivity extends AppCompatActivity {
 
+    private int scienceIndex;
     Random random;
-    private int currentScore = 0, questionAttempted = 1, currentPos, scienceIndex;
+    private int currentScore = 0, questionAttempted = 1, currentPos;
     private TextView questionTv, questionNumberTv, option1Btn, option2Btn, option3Btn, option4Btn;
     private ArrayList<QuizModel> currentScience, geography, history, math, biology, english, geometry;
     private View decorView;
@@ -56,10 +58,8 @@ public class MainActivity extends AppCompatActivity {
         geometry = new ArrayList<>();
 
         addScienceQuestion();
-        
-        currentScience.addAll(geography);
-        currentPos = random.nextInt(currentScience.size());
-        setDataToViews(currentPos);
+
+        choose();
     }
 
 
@@ -77,12 +77,9 @@ public class MainActivity extends AppCompatActivity {
         restartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentScience.clear();
-                currentScience.addAll(geography);
-                currentPos = random.nextInt(currentScience.size());
-                questionAttempted = 1;
-                currentScore = 0;
-                setDataToViews(currentPos);
+                Intent intent = new Intent(MainActivity.this, ChooseActivity.class);
+                startActivity(intent);
+                finish();
                 dialog.dismiss();
             }
         });
@@ -114,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
         geography.add(new QuizModel("Назовите скопление мелких пригородов вокруг центрального города?", "Агломерация", "Централизация", "Агломерация", "Урбанизация", "Нет правилного ответа"));
         geography.add(new QuizModel("Столица Ливии", "Триполи", "Крит'", "Варшава", "Триполи", "Люблана"));
         geography.add(new QuizModel("На сколько видов делятся полезные ископаемые?", "На три вида", "На две вида", "На три вида", "На семь вида", "На пять вида"));
+        geography.add(new QuizModel("В каком месте Китай среди ВВП?", "На первом", "В третьем", "На первом", "На втором", "В четвертом"));
 
         history.add(new QuizModel("Как называются гробницы  фараонов Древнего Египта ?", "пирамиды", "храмы", "пирамиды", "катакомбы", "гроб"));
         history.add(new QuizModel("Какому богу были посвящены Олимпийские игры в Древней Греции:", "Зевсу", "Зевсу ", "Аполлону", "Посейдону", "Гефесту"));
@@ -124,19 +122,56 @@ public class MainActivity extends AppCompatActivity {
         history.add(new QuizModel("Отец историй:", "Геродот", "Геродот", "Аристотель", "Аристофан", "Цицерон"));
         history.add(new QuizModel("Своё государство жители Китая называли:", "Поднебесная империя", "Непобедимая империя", "Благородная империя", "Поднебесная империя", "Империя возле жёлтого реки"));
         history.add(new QuizModel("Создател переменого тока", "Никола Тесла", "Уильямом Гильбертом'", "Никола Тесла", "Андре Мари Ампер", "Чарльз Августин"));
-        history.add(new QuizModel("Назовите три чудесь из 7ми", "Акрополь,Пирамиды,Александрский Маяк", "Родос,Эфес,Эйфил", "Акрополь,Пирамиды,Александрский Маяк", "Олимпия,Вавилон,Храм Буды ", "Александрия Египетская,Галикарнас,Вавилон"));
+        history.add(new QuizModel("Назовите три чудес из 7ми", "Акрополь,Пирамиды,Александрский Маяк", "Родос,Эфес,Эйфил", "Акрополь,Пирамиды,Александрский Маяк", "Олимпия,Вавилон,Храм Буды ", "Александрия Египетская,Галикарнас,Вавилон"));
+        history.add(new QuizModel("Кто расшифировал (Розетский камень) ", "Шампольон", "Шампольон", "Фредрик", "Арасту", "Немо"));
 
         english.add(new QuizModel("This __ a good restaurant - Это хороший ресторан", "is", "are", "was", "is", "at"));
         english.add(new QuizModel("I __ a new student - Я новый ученик:", "am", "is ", "are", "to", "am"));
-        english.add(new QuizModel("КWhere __ you last night? - Где вы были прошлой ночью?", "were", "was", "are", "were", "how"));
+        english.add(new QuizModel("Where __ you last night? - Где вы были прошлой ночью?", "were", "was", "are", "were", "how"));
         english.add(new QuizModel("Claire and James __ listening - Клэр и Джеймс не слушали", "weren't", "weren't", "wasn't", "isn't", "realy"));
         english.add(new QuizModel("We (to understand) __ each other.", "Understood", "Understanded", "Understood", "Understand", "Underground"));
         english.add(new QuizModel("Did you (to see) __ my new bike?", "see", "saw", "seen", "see", "look"));
         english.add(new QuizModel("I __ a big family. – У меня большая семья.", "have", "has", "have", "had", "am"));
         english.add(new QuizModel("They __ got many friends. - У них много друзей.", "have", "have", "has", "had", "is"));
         english.add(new QuizModel("I __ decided yet. - Я еще не решил.", "haven't", "haven't", "hasn't", "hadn't", "hisn't"));
-        english.add(new QuizModel("The plane (to take off) __ right now. - Самолет взлетает прямо сейчас.", "is taking off", "is take off  ", "is taking off", "taking", "take"));
+        english.add(new QuizModel("The plane (to take off) __ right now. - Самолет взлетает прямо сейчас.", "is taking off", "is take off", "is taking off", "taking", "take"));
+        english.add(new QuizModel("We must be geting close (перевод)", "Похоже мы приближаеися", "Мы должны приближаться", "Похоже мы приближаемся", "Мы близко", "мы далеко"));
 
+    }
+
+    public void choose() {
+        switch (scienceIndex) {
+            case 1:
+                currentScience.addAll(geography);
+                currentPos = random.nextInt(currentScience.size());
+                setDataToViews(currentPos);
+                break;
+            case 2:
+                currentScience.addAll(history);
+                currentPos = random.nextInt(currentScience.size());
+                setDataToViews(currentPos);
+                break;
+            case 3:
+                currentScience.addAll(math);
+                currentPos = random.nextInt(currentScience.size());
+                setDataToViews(currentPos);
+                break;
+            case 4:
+                currentScience.addAll(biology);
+                currentPos = random.nextInt(currentScience.size());
+                setDataToViews(currentPos);
+                break;
+            case 5:
+                currentScience.addAll(english);
+                currentPos = random.nextInt(currentScience.size());
+                setDataToViews(currentPos);
+                break;
+            case 6:
+                currentScience.addAll(geometry);
+                currentPos = random.nextInt(currentScience.size());
+                setDataToViews(currentPos);
+                break;
+        }
     }
 
     private void onBtnClick() {
@@ -200,6 +235,7 @@ public class MainActivity extends AppCompatActivity {
                 .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                     @Override
                     public void onClick(SweetAlertDialog sDialog) {
+                        finish();
                         sDialog.dismissWithAnimation();
                     }
                 })

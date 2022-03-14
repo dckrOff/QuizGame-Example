@@ -23,6 +23,7 @@ public class ChooseActivity extends AppCompatActivity {
     }
 
     private void onBtnClick() {
+
         geography.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,6 +94,7 @@ public class ChooseActivity extends AppCompatActivity {
                     @Override
                     public void onClick(SweetAlertDialog sDialog) {
                         sDialog.dismissWithAnimation();
+                        finish();
                     }
                 })
                 .setCancelButton("Нет", new SweetAlertDialog.OnSweetClickListener() {
