@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.Random;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class MainActivity extends AppCompatActivity {
 
     Random random;
@@ -61,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.congratulation_custom_dialog);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         TextView currAnswers = dialog.findViewById(R.id.correctAnswers);
-        currAnswers.setText("To'gri javoblar soni: " + currentScore);
+        currAnswers.setText("Число правильных ответов: " + currentScore);
         TextView restartBtn = dialog.findViewById(R.id.restartBtn);
         restartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,17 +95,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getQuizQuestion(ArrayList<QuizModel> quizModelsArrayList) {
-        quizModelsArrayList.add(new QuizModel("Tabaco - trenidat poytaxti qayer?", "Port-of-Spain", "Port-of-Spain", "Tashkent", "Braziliya", "Vatican"));
-        quizModelsArrayList.add(new QuizModel("Dunyodagi eng aholi ko'p davlat", "India", "China", "Uzbekistan", "India", "Amerika"));
-        quizModelsArrayList.add(new QuizModel("Neandertalning yosh zamondoshi bo'lgan odamning atalishi nima edi?", "Kromanyon", "Zinjantrop", "Kromanyon", "Pitikantrop", "Avstrolopit"));
-        quizModelsArrayList.add(new QuizModel("Germaniya orqali qaysi daryo oqib o'tadi?", "Reyn", "Nil", "Delta", "Reyn", "Amudaryo"));
-        quizModelsArrayList.add(new QuizModel("Qoraqum sahrosi qayerda joylashgan?", "Turkmanistonda", "Armeniya", "Turkmaniston", "Kozog'iston", "Uzbekison"));
-        quizModelsArrayList.add(new QuizModel("Evropadagi eng yer maydoni katta bo'lgan davlat", "Rossiya", "Buyuk Britaniya", "Germaniya", "Fransiya", "Rossiya"));
-        quizModelsArrayList.add(new QuizModel("Yer yuzida qancha materiklar bor?", "6", "5", "3", "6", "1"));
-        quizModelsArrayList.add(new QuizModel("Sloveniyani poytaxti?", "Lyublana", "Bratislava", "Lyublana", "Zagreb", "Izola"));
-        quizModelsArrayList.add(new QuizModel("Rossiyadagi eng katta daryo", "Ob'", "Ob'", "Yenisey", "Volga", "Qora daryo"));
-        quizModelsArrayList.add(new QuizModel("Dunyoadgi eng kichkina davlat?", "Vatikan", "Kipr", "Vatikan", "Chili", "Yangi zenlandiya"));
-        quizModelsArrayList.add(new QuizModel("har yili qaysi shaharda jahon iqtisodiy forumi o'tkaziladi?", "Da'vos", "Strasburg", "Da'vos", "Brusell", "Jeneva"));
+        quizModelsArrayList.add(new QuizModel("В какой стране находится одно из оставшихся семи чудес света??", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        quizModelsArrayList.add(new QuizModel("Этот океан самый маленький и холодный", "Северный Ледовитый", "Атлантический", "Тихий океан", "Северный Ледовитый", "Индийский океан"));
+        quizModelsArrayList.add(new QuizModel("Какой остров можно надеть на голову??", "Сомбреро", "Новая Зеландия", "Карибский остров", "Фиджи", "Сомбреро"));
+        quizModelsArrayList.add(new QuizModel("Назовите самую длинную речку?", "Нил", "Нил", "Рейн", "Янцзы", "Амазонка"));
+        quizModelsArrayList.add(new QuizModel("Он сам вода и плавает по воде?", "Лёд", "Вода", "Лёд", "Сол", "Н2О"));
+        quizModelsArrayList.add(new QuizModel("Как называется австралийская дикая собака?", "Динго", "Доберман", "Алабай", "Динго", "Руперт"));
+        quizModelsArrayList.add(new QuizModel("Черным золотом называют…", "Нефт", "Нефт", "Хлопок", "Золота", "Алмаз"));
+        quizModelsArrayList.add(new QuizModel("Назовите скопление мелких пригородов вокруг центрального города?", "Агломерация", "Централизация", "Агломерация", "Урбанизация", "Нет правилного ответа"));
+        quizModelsArrayList.add(new QuizModel("Столица Ливии", "Триполи", "Крит'", "Варшава", "Триполи", "Люблана"));
+        quizModelsArrayList.add(new QuizModel("На сколько видов делятся полезные ископаемые?", "На три вида", "На две вида", "На три вида", "На семь вида", "На пять вида"));
     }
 
     private void onBtnClick() {
@@ -155,6 +156,28 @@ public class MainActivity extends AppCompatActivity {
                 setDataToViews(currentPos);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Confirmation message
+        new SweetAlertDialog(MainActivity.this, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("Внимание!")
+                .setContentText("Вы уверены что хотите выйти?")
+                .setConfirmText("Да")
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        sDialog.dismissWithAnimation();
+                    }
+                })
+                .setCancelButton("Нет", new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        sDialog.dismissWithAnimation();
+                    }
+                })
+                .show();
     }
 
     private void hideBars() {
