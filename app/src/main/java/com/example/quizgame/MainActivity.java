@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     Random random;
     private int currentScore = 0, questionAttempted = 1, currentPos, scienceIndex;
     private TextView questionTv, questionNumberTv, option1Btn, option2Btn, option3Btn, option4Btn;
-    private ArrayList<QuizModel> geography, currentScience;
+    private ArrayList<QuizModel> currentScience, geography, history, math, biology, english, geometry;
     private View decorView;
     private Bundle indexOfScience;
 
@@ -48,11 +48,15 @@ public class MainActivity extends AppCompatActivity {
         option4Btn = findViewById(R.id.idBtnOprion4);
 
         currentScience = new ArrayList<>();
-
         geography = new ArrayList<>();
-        getGeographyQuestion(geography);
+        history = new ArrayList<>();
+        math = new ArrayList<>();
+        biology = new ArrayList<>();
+        english = new ArrayList<>();
+        geometry = new ArrayList<>();
 
-
+        addScienceQuestion();
+        
         currentScience.addAll(geography);
         currentPos = random.nextInt(currentScience.size());
         setDataToViews(currentPos);
@@ -99,17 +103,40 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void getGeographyQuestion(ArrayList<QuizModel> quizModelsArrayList) {
-        quizModelsArrayList.add(new QuizModel("В какой стране находится одно из оставшихся семи чудес света??", "Египет", "Италия", "Египет", "Англия", "Македония"));
-        quizModelsArrayList.add(new QuizModel("Этот океан самый маленький и холодный", "Северный Ледовитый", "Атлантический", "Тихий океан", "Северный Ледовитый", "Индийский океан"));
-        quizModelsArrayList.add(new QuizModel("Какой остров можно надеть на голову?", "Сомбреро", "Новая Зеландия", "Карибский остров", "Фиджи", "Сомбреро"));
-        quizModelsArrayList.add(new QuizModel("Назовите самую длинную реку?", "Нил", "Нил", "Рейн", "Янцзы", "Амазонка"));
-        quizModelsArrayList.add(new QuizModel("Он сам вода и плавает по воде?", "Лёд", "Вода", "Лёд", "Соль", "Н2О"));
-        quizModelsArrayList.add(new QuizModel("Как называется австралийская дикая собака?", "Динго", "Доберман", "Алабай", "Динго", "Руперт"));
-        quizModelsArrayList.add(new QuizModel("Черным золотом называют…", "Нефт", "Нефт", "Хлопок", "Золота", "Алмаз"));
-        quizModelsArrayList.add(new QuizModel("Назовите скопление мелких пригородов вокруг центрального города?", "Агломерация", "Централизация", "Агломерация", "Урбанизация", "Нет правилного ответа"));
-        quizModelsArrayList.add(new QuizModel("Столица Ливии", "Триполи", "Крит'", "Варшава", "Триполи", "Люблана"));
-        quizModelsArrayList.add(new QuizModel("На сколько видов делятся полезные ископаемые?", "На три вида", "На две вида", "На три вида", "На семь вида", "На пять вида"));
+    private void addScienceQuestion() {
+        geography.add(new QuizModel("В какой стране находится одно из оставшихся семи чудес света??", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geography.add(new QuizModel("Этот океан самый маленький и холодный", "Северный Ледовитый", "Атлантический", "Тихий океан", "Северный Ледовитый", "Индийский океан"));
+        geography.add(new QuizModel("Какой остров можно надеть на голову?", "Сомбреро", "Новая Зеландия", "Карибский остров", "Фиджи", "Сомбреро"));
+        geography.add(new QuizModel("Назовите самую длинную реку?", "Нил", "Нил", "Рейн", "Янцзы", "Амазонка"));
+        geography.add(new QuizModel("Он сам вода и плавает по воде?", "Лёд", "Вода", "Лёд", "Соль", "Н2О"));
+        geography.add(new QuizModel("Как называется австралийская дикая собака?", "Динго", "Доберман", "Алабай", "Динго", "Руперт"));
+        geography.add(new QuizModel("Черным золотом называют…", "Нефт", "Нефт", "Хлопок", "Золота", "Алмаз"));
+        geography.add(new QuizModel("Назовите скопление мелких пригородов вокруг центрального города?", "Агломерация", "Централизация", "Агломерация", "Урбанизация", "Нет правилного ответа"));
+        geography.add(new QuizModel("Столица Ливии", "Триполи", "Крит'", "Варшава", "Триполи", "Люблана"));
+        geography.add(new QuizModel("На сколько видов делятся полезные ископаемые?", "На три вида", "На две вида", "На три вида", "На семь вида", "На пять вида"));
+
+        history.add(new QuizModel("Как называются гробницы  фараонов Древнего Египта ?", "пирамиды", "храмы", "пирамиды", "катакомбы", "гроб"));
+        history.add(new QuizModel("Какому богу были посвящены Олимпийские игры в Древней Греции:", "Зевсу", "Зевсу ", "Аполлону", "Посейдону", "Гефесту"));
+        history.add(new QuizModel("Как называется огромный амфитеатр Рима, где сражались гладиаторы  и в котором могло находиться  до 50 тысяч зрителей:", "Колизей", "Театр", "Пантеон", "Колизей", "Форум"));
+        history.add(new QuizModel("Огромная держава монголов была создана:", "Чингизханом", "Батыем", "Тамерланом", "Тимучин", "Чингизханом"));
+        history.add(new QuizModel("Кто был первым русским царём", "Иван IV Грозный", "Иван IV Грозный", "Пётр I", "Иван Калита", "Иван Грозный"));
+        history.add(new QuizModel("Какой титул получил Наполеон в 1804 году:", "император", "король", "царь", "император", "Уничтожитель"));
+        history.add(new QuizModel("Отец историй:", "Геродот", "Геродот", "Аристотель", "Аристофан", "Цицерон"));
+        history.add(new QuizModel("Своё государство жители Китая называли:", "Поднебесная империя", "Непобедимая империя", "Благородная империя", "Поднебесная империя", "Империя возле жёлтого реки"));
+        history.add(new QuizModel("Создател переменого тока", "Никола Тесла", "Уильямом Гильбертом'", "Никола Тесла", "Андре Мари Ампер", "Чарльз Августин"));
+        history.add(new QuizModel("Назовите три чудесь из 7ми", "Акрополь,Пирамиды,Александрский Маяк", "Родос,Эфес,Эйфил", "Акрополь,Пирамиды,Александрский Маяк", "Олимпия,Вавилон,Храм Буды ", "Александрия Египетская,Галикарнас,Вавилон"));
+
+        english.add(new QuizModel("This __ a good restaurant - Это хороший ресторан", "is", "are", "was", "is", "at"));
+        english.add(new QuizModel("I __ a new student - Я новый ученик:", "am", "is ", "are", "to", "am"));
+        english.add(new QuizModel("КWhere __ you last night? - Где вы были прошлой ночью?", "were", "was", "are", "were", "how"));
+        english.add(new QuizModel("Claire and James __ listening - Клэр и Джеймс не слушали", "weren't", "weren't", "wasn't", "isn't", "realy"));
+        english.add(new QuizModel("We (to understand) __ each other.", "Understood", "Understanded", "Understood", "Understand", "Underground"));
+        english.add(new QuizModel("Did you (to see) __ my new bike?", "see", "saw", "seen", "see", "look"));
+        english.add(new QuizModel("I __ a big family. – У меня большая семья.", "have", "has", "have", "had", "am"));
+        english.add(new QuizModel("They __ got many friends. - У них много друзей.", "have", "have", "has", "had", "is"));
+        english.add(new QuizModel("I __ decided yet. - Я еще не решил.", "haven't", "haven't", "hasn't", "hadn't", "hisn't"));
+        english.add(new QuizModel("The plane (to take off) __ right now. - Самолет взлетает прямо сейчас.", "is taking off", "is take off  ", "is taking off", "taking", "take"));
+
     }
 
     private void onBtnClick() {
