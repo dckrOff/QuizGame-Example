@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/btngeo"
+        android:id="@+id/btngeography"
         android:layout_width="180dp"
         android:layout_height="180dp"
         android:layout_marginTop="32dp"
@@ -32,11 +32,11 @@
         android:layout_marginTop="32dp"
         android:src="@drawable/his"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btngeo"
+        app:layout_constraintStart_toEndOf="@+id/btngeography"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <ImageView
-        android:id="@+id/btnbio"
+        android:id="@+id/btnbiogia"
         android:layout_width="180dp"
         android:layout_height="180dp"
         android:src="@drawable/bio"
@@ -49,9 +49,9 @@
         android:layout_width="180dp"
         android:layout_height="180dp"
         android:src="@drawable/aljabr"
-        app:layout_constraintEnd_toStartOf="@+id/btnbio"
+        app:layout_constraintEnd_toStartOf="@+id/btnbiogia"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btngeo" />
+        app:layout_constraintTop_toBottomOf="@+id/btngeography" />
 
     <ImageView
         android:id="@+id/btngeometria"
@@ -60,7 +60,7 @@
         android:src="@drawable/geometria"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/english"
-        app:layout_constraintTop_toBottomOf="@+id/btnbio" />
+        app:layout_constraintTop_toBottomOf="@+id/btnbiogia" />
 
     <ImageView
         android:id="@+id/english"

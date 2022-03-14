@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class ChooseActivity extends AppCompatActivity {
-    private ImageView geo, history, aljabr, english, bio, geometria;
+    private ImageView geography, history, aljabr, english, biology, geometria;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,22 +23,63 @@ public class ChooseActivity extends AppCompatActivity {
     }
 
     private void onBtnClick() {
-        geo.setOnClickListener(new View.OnClickListener() {
+        geography.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ChooseActivity.this, MainActivity.class);
+                intent.putExtra("ScienceIndex", 1);
+                startActivity(intent);
+            }
+        });
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ChooseActivity.this, MainActivity.class);
+                intent.putExtra("ScienceIndex", 2);
+                startActivity(intent);
+            }
+        });
+        aljabr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ChooseActivity.this, MainActivity.class);
+                intent.putExtra("ScienceIndex", 3);
+                startActivity(intent);
+            }
+        });
+        biology.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ChooseActivity.this, MainActivity.class);
+                intent.putExtra("ScienceIndex", 4);
+                startActivity(intent);
+            }
+        });
+        english.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ChooseActivity.this, MainActivity.class);
+                intent.putExtra("ScienceIndex", 5);
+                startActivity(intent);
+            }
+        });
+        geometria.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ChooseActivity.this, MainActivity.class);
+                intent.putExtra("ScienceIndex", 6);
                 startActivity(intent);
             }
         });
     }
 
     private void initViews() {
-        geo = findViewById(R.id.btngeo);
+        geography = findViewById(R.id.btngeography);
         geometria = findViewById(R.id.btngeometria);
         english = findViewById(R.id.english);
         history = findViewById(R.id.btnhis);
         aljabr = findViewById(R.id.btnaljabr);
-        bio = findViewById(R.id.btnbio);
+        biology = findViewById(R.id.btnbiogia);
     }
 
     @Override

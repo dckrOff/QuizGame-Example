@@ -18,15 +18,19 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 public class MainActivity extends AppCompatActivity {
 
     Random random;
-    int currentScore = 0, questionAttempted = 1, currentPos;
+    private int currentScore = 0, questionAttempted = 1, currentPos, scienceIndex;
     private TextView questionTv, questionNumberTv, option1Btn, option2Btn, option3Btn, option4Btn;
-    private ArrayList<QuizModel> quizModelsArrayList, quizModelsArrayList2;
+    private ArrayList<QuizModel> geography, currentScience;
     private View decorView;
+    private Bundle indexOfScience;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        indexOfScience = getIntent().getExtras();
+        scienceIndex = indexOfScience.getInt("ScienceIndex", 0);
 
         initViews();
         onBtnClick();
@@ -43,13 +47,14 @@ public class MainActivity extends AppCompatActivity {
         option3Btn = findViewById(R.id.idBtnOprion3);
         option4Btn = findViewById(R.id.idBtnOprion4);
 
-        quizModelsArrayList2 = new ArrayList<>();
-        quizModelsArrayList = new ArrayList<>();
-        getQuizQuestion(quizModelsArrayList);
+        currentScience = new ArrayList<>();
+
+        geography = new ArrayList<>();
+        getGeographyQuestion(geography);
 
 
-        quizModelsArrayList2.addAll(quizModelsArrayList);
-        currentPos = random.nextInt(quizModelsArrayList.size());
+        currentScience.addAll(geography);
+        currentPos = random.nextInt(currentScience.size());
         setDataToViews(currentPos);
     }
 
@@ -68,9 +73,9 @@ public class MainActivity extends AppCompatActivity {
         restartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                quizModelsArrayList2.clear();
-                quizModelsArrayList2.addAll(quizModelsArrayList);
-                currentPos = random.nextInt(quizModelsArrayList2.size());
+                currentScience.clear();
+                currentScience.addAll(geography);
+                currentPos = random.nextInt(currentScience.size());
                 questionAttempted = 1;
                 currentScore = 0;
                 setDataToViews(currentPos);
@@ -86,20 +91,20 @@ public class MainActivity extends AppCompatActivity {
         if (questionAttempted == 11) {
             alertDialog();
         } else {
-            questionTv.setText(quizModelsArrayList2.get(currentPos).getQuestion());
-            option1Btn.setText(quizModelsArrayList2.get(currentPos).getOption1());
-            option2Btn.setText(quizModelsArrayList2.get(currentPos).getOption2());
-            option3Btn.setText(quizModelsArrayList2.get(currentPos).getOption3());
-            option4Btn.setText(quizModelsArrayList2.get(currentPos).getOption4());
+            questionTv.setText(currentScience.get(currentPos).getQuestion());
+            option1Btn.setText(currentScience.get(currentPos).getOption1());
+            option2Btn.setText(currentScience.get(currentPos).getOption2());
+            option3Btn.setText(currentScience.get(currentPos).getOption3());
+            option4Btn.setText(currentScience.get(currentPos).getOption4());
         }
     }
 
-    private void getQuizQuestion(ArrayList<QuizModel> quizModelsArrayList) {
+    private void getGeographyQuestion(ArrayList<QuizModel> quizModelsArrayList) {
         quizModelsArrayList.add(new QuizModel("В какой стране находится одно из оставшихся семи чудес света??", "Египет", "Италия", "Египет", "Англия", "Македония"));
         quizModelsArrayList.add(new QuizModel("Этот океан самый маленький и холодный", "Северный Ледовитый", "Атлантический", "Тихий океан", "Северный Ледовитый", "Индийский океан"));
-        quizModelsArrayList.add(new QuizModel("Какой остров можно надеть на голову??", "Сомбреро", "Новая Зеландия", "Карибский остров", "Фиджи", "Сомбреро"));
-        quizModelsArrayList.add(new QuizModel("Назовите самую длинную речку?", "Нил", "Нил", "Рейн", "Янцзы", "Амазонка"));
-        quizModelsArrayList.add(new QuizModel("Он сам вода и плавает по воде?", "Лёд", "Вода", "Лёд", "Сол", "Н2О"));
+        quizModelsArrayList.add(new QuizModel("Какой остров можно надеть на голову?", "Сомбреро", "Новая Зеландия", "Карибский остров", "Фиджи", "Сомбреро"));
+        quizModelsArrayList.add(new QuizModel("Назовите самую длинную реку?", "Нил", "Нил", "Рейн", "Янцзы", "Амазонка"));
+        quizModelsArrayList.add(new QuizModel("Он сам вода и плавает по воде?", "Лёд", "Вода", "Лёд", "Соль", "Н2О"));
         quizModelsArrayList.add(new QuizModel("Как называется австралийская дикая собака?", "Динго", "Доберман", "Алабай", "Динго", "Руперт"));
         quizModelsArrayList.add(new QuizModel("Черным золотом называют…", "Нефт", "Нефт", "Хлопок", "Золота", "Алмаз"));
         quizModelsArrayList.add(new QuizModel("Назовите скопление мелких пригородов вокруг центрального города?", "Агломерация", "Централизация", "Агломерация", "Урбанизация", "Нет правилного ответа"));
@@ -111,48 +116,48 @@ public class MainActivity extends AppCompatActivity {
         option1Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (quizModelsArrayList2.get(currentPos).getAnswer().trim().toLowerCase().equals(option1Btn.getText().toString().trim().toLowerCase())) {
+                if (currentScience.get(currentPos).getAnswer().trim().toLowerCase().equals(option1Btn.getText().toString().trim().toLowerCase())) {
                     currentScore++;
                 }
-                quizModelsArrayList2.remove(currentPos);
+                currentScience.remove(currentPos);
                 questionAttempted++;
-                currentPos = random.nextInt(quizModelsArrayList2.size());
+                currentPos = random.nextInt(currentScience.size());
                 setDataToViews(currentPos);
             }
         });
         option2Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (quizModelsArrayList2.get(currentPos).getAnswer().trim().toLowerCase().equals(option2Btn.getText().toString().trim().toLowerCase())) {
+                if (currentScience.get(currentPos).getAnswer().trim().toLowerCase().equals(option2Btn.getText().toString().trim().toLowerCase())) {
                     currentScore++;
                 }
-                quizModelsArrayList2.remove(currentPos);
+                currentScience.remove(currentPos);
                 questionAttempted++;
-                currentPos = random.nextInt(quizModelsArrayList2.size());
+                currentPos = random.nextInt(currentScience.size());
                 setDataToViews(currentPos);
             }
         });
         option3Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (quizModelsArrayList2.get(currentPos).getAnswer().trim().toLowerCase().equals(option3Btn.getText().toString().trim().toLowerCase())) {
+                if (currentScience.get(currentPos).getAnswer().trim().toLowerCase().equals(option3Btn.getText().toString().trim().toLowerCase())) {
                     currentScore++;
                 }
-                quizModelsArrayList2.remove(currentPos);
+                currentScience.remove(currentPos);
                 questionAttempted++;
-                currentPos = random.nextInt(quizModelsArrayList2.size());
+                currentPos = random.nextInt(currentScience.size());
                 setDataToViews(currentPos);
             }
         });
         option4Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (quizModelsArrayList2.get(currentPos).getAnswer().trim().toLowerCase().equals(option4Btn.getText().toString().trim().toLowerCase())) {
+                if (currentScience.get(currentPos).getAnswer().trim().toLowerCase().equals(option4Btn.getText().toString().trim().toLowerCase())) {
                     currentScore++;
                 }
-                quizModelsArrayList2.remove(currentPos);
+                currentScience.remove(currentPos);
                 questionAttempted++;
-                currentPos = random.nextInt(quizModelsArrayList2.size());
+                currentPos = random.nextInt(currentScience.size());
                 setDataToViews(currentPos);
             }
         });
