@@ -7,19 +7,4 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
-
-    // Splash background colors
-    <color name="splash1">#0e111f</color>
-    <color name="splash2">#000</color>
-    <color name="splash3">#feb611</color>
-    <color name="splash4">#15191f</color>
-    <color name="splash5">#f5f7f6</color>
-    <color name="splash6">#1a87c5</color>
-    <color name="splash7">#000</color>
-    <color name="splash8">#836aff</color>
-    <color name="splash9">#fffef2</color>
-    <color name="splash10">#000</color>
-
-
 </resources>

@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     Random random;
     int currentScore = 0, questionAttempted = 1, currentPos;
     private TextView questionTv, questionNumberTv, option1Btn, option2Btn, option3Btn, option4Btn;
-    private ArrayList<QuizModel> quizModelsArrayList;
+    private ArrayList<QuizModel> quizModelsArrayList, quizModelsArrayList2;
     private View decorView;
 
     @Override
@@ -39,15 +39,20 @@ public class MainActivity extends AppCompatActivity {
         option2Btn = findViewById(R.id.idBtnOprion2);
         option3Btn = findViewById(R.id.idBtnOprion3);
         option4Btn = findViewById(R.id.idBtnOprion4);
+
         quizModelsArrayList = new ArrayList<>();
         getQuizQuestion(quizModelsArrayList);
+
+        quizModelsArrayList2 = new ArrayList<>();
+        quizModelsArrayList2.addAll(quizModelsArrayList);
+
         random = new Random();
-        currentPos = random.nextInt(quizModelsArrayList.size());
+        currentPos = random.nextInt(quizModelsArrayList2.size());
         setDataToViews(currentPos);
     }
 
+    @SuppressLint("SetTextI18n")
     private void alertDialog() {
-
         final Dialog dialog = new Dialog(MainActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(false);
@@ -60,7 +65,9 @@ public class MainActivity extends AppCompatActivity {
         restartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentPos = random.nextInt(quizModelsArrayList.size());
+                quizModelsArrayList2.clear();
+                quizModelsArrayList2.addAll(quizModelsArrayList);
+                currentPos = random.nextInt(quizModelsArrayList2.size());
                 questionAttempted = 1;
                 currentScore = 0;
                 setDataToViews(currentPos);
@@ -76,11 +83,11 @@ public class MainActivity extends AppCompatActivity {
         if (questionAttempted == 10) {
             alertDialog();
         } else {
-            questionTv.setText(quizModelsArrayList.get(currentPos).getQuestion());
-            option1Btn.setText(quizModelsArrayList.get(currentPos).getOption1());
-            option2Btn.setText(quizModelsArrayList.get(currentPos).getOption2());
-            option3Btn.setText(quizModelsArrayList.get(currentPos).getOption3());
-            option4Btn.setText(quizModelsArrayList.get(currentPos).getOption4());
+            questionTv.setText(quizModelsArrayList2.get(currentPos).getQuestion());
+            option1Btn.setText(quizModelsArrayList2.get(currentPos).getOption1());
+            option2Btn.setText(quizModelsArrayList2.get(currentPos).getOption2());
+            option3Btn.setText(quizModelsArrayList2.get(currentPos).getOption3());
+            option4Btn.setText(quizModelsArrayList2.get(currentPos).getOption4());
         }
     }
 
@@ -101,44 +108,48 @@ public class MainActivity extends AppCompatActivity {
         option1Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (quizModelsArrayList.get(currentPos).getAnswer().trim().toLowerCase().equals(option1Btn.getText().toString().trim().toLowerCase())) {
+                if (quizModelsArrayList2.get(currentPos).getAnswer().trim().toLowerCase().equals(option1Btn.getText().toString().trim().toLowerCase())) {
                     currentScore++;
                 }
+                quizModelsArrayList2.remove(currentPos);
                 questionAttempted++;
-                currentPos = random.nextInt(quizModelsArrayList.size());
+                currentPos = random.nextInt(quizModelsArrayList2.size());
                 setDataToViews(currentPos);
             }
         });
         option2Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (quizModelsArrayList.get(currentPos).getAnswer().trim().toLowerCase().equals(option2Btn.getText().toString().trim().toLowerCase())) {
+                if (quizModelsArrayList2.get(currentPos).getAnswer().trim().toLowerCase().equals(option2Btn.getText().toString().trim().toLowerCase())) {
                     currentScore++;
                 }
+                quizModelsArrayList2.remove(currentPos);
                 questionAttempted++;
-                currentPos = random.nextInt(quizModelsArrayList.size());
+                currentPos = random.nextInt(quizModelsArrayList2.size());
                 setDataToViews(currentPos);
             }
         });
         option3Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (quizModelsArrayList.get(currentPos).getAnswer().trim().toLowerCase().equals(option3Btn.getText().toString().trim().toLowerCase())) {
+                if (quizModelsArrayList2.get(currentPos).getAnswer().trim().toLowerCase().equals(option3Btn.getText().toString().trim().toLowerCase())) {
                     currentScore++;
                 }
+                quizModelsArrayList2.remove(currentPos);
                 questionAttempted++;
-                currentPos = random.nextInt(quizModelsArrayList.size());
+                currentPos = random.nextInt(quizModelsArrayList2.size());
                 setDataToViews(currentPos);
             }
         });
         option4Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (quizModelsArrayList.get(currentPos).getAnswer().trim().toLowerCase().equals(option4Btn.getText().toString().trim().toLowerCase())) {
+                if (quizModelsArrayList2.get(currentPos).getAnswer().trim().toLowerCase().equals(option4Btn.getText().toString().trim().toLowerCase())) {
                     currentScore++;
                 }
+                quizModelsArrayList2.remove(currentPos);
                 questionAttempted++;
-                currentPos = random.nextInt(quizModelsArrayList.size());
+                currentPos = random.nextInt(quizModelsArrayList2.size());
                 setDataToViews(currentPos);
             }
         });
