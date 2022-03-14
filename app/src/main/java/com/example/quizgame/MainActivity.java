@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initViews() {
+        random = new Random();
         questionTv = findViewById(R.id.idTvQuestion);
         questionNumberTv = findViewById(R.id.idTvQuestionAttempted);
         questionNumberTv = findViewById(R.id.idTvQuestionAttempted);
@@ -40,16 +41,16 @@ public class MainActivity extends AppCompatActivity {
         option3Btn = findViewById(R.id.idBtnOprion3);
         option4Btn = findViewById(R.id.idBtnOprion4);
 
+        quizModelsArrayList2 = new ArrayList<>();
         quizModelsArrayList = new ArrayList<>();
         getQuizQuestion(quizModelsArrayList);
 
-        quizModelsArrayList2 = new ArrayList<>();
-        quizModelsArrayList2.addAll(quizModelsArrayList);
 
-        random = new Random();
-        currentPos = random.nextInt(quizModelsArrayList2.size());
+        quizModelsArrayList2.addAll(quizModelsArrayList);
+        currentPos = random.nextInt(quizModelsArrayList.size());
         setDataToViews(currentPos);
     }
+
 
     @SuppressLint("SetTextI18n")
     private void alertDialog() {
@@ -80,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     private void setDataToViews(int currentPos) {
         questionNumberTv.setText(questionAttempted + "/10");
-        if (questionAttempted == 10) {
+        if (questionAttempted == 11) {
             alertDialog();
         } else {
             questionTv.setText(quizModelsArrayList2.get(currentPos).getQuestion());
@@ -102,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
         quizModelsArrayList.add(new QuizModel("Sloveniyani poytaxti?", "Lyublana", "Bratislava", "Lyublana", "Zagreb", "Izola"));
         quizModelsArrayList.add(new QuizModel("Rossiyadagi eng katta daryo", "Ob'", "Ob'", "Yenisey", "Volga", "Qora daryo"));
         quizModelsArrayList.add(new QuizModel("Dunyoadgi eng kichkina davlat?", "Vatikan", "Kipr", "Vatikan", "Chili", "Yangi zenlandiya"));
+        quizModelsArrayList.add(new QuizModel("har yili qaysi shaharda jahon iqtisodiy forumi o'tkaziladi?", "Da'vos", "Strasburg", "Da'vos", "Brusell", "Jeneva"));
     }
 
     private void onBtnClick() {
