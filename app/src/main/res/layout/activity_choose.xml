@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.ChooseActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_action_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/btngeography"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/geografia"
+        app:layout_constraintEnd_toStartOf="@+id/btnhis"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/btnhis"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/history"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btngeography"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/btnbiogia"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:src="@drawable/bio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnaljabr"
+        app:layout_constraintTop_toBottomOf="@+id/btnhis" />
+
+    <ImageView
+        android:id="@+id/btnaljabr"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:src="@drawable/algebra"
+        app:layout_constraintEnd_toStartOf="@+id/btnbiogia"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btngeography" />
+
+    <ImageView
+        android:id="@+id/btngeometria"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:src="@drawable/geo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/english"
+        app:layout_constraintTop_toBottomOf="@+id/btnbiogia" />
+
+    <ImageView
+        android:id="@+id/english"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:src="@drawable/english"
+        app:layout_constraintEnd_toStartOf="@+id/btngeometria"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnaljabr" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

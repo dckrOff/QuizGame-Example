@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="15dp"
+    android:background="@drawable/recs"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Вибрация"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_gravity="start"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="bold"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Музыка"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
+        android:textColor="@color/black"
+        android:layout_gravity="start"
+        android:textSize="25dp"
+        android:textStyle="bold"/>
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch_vibration"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:checked="false"
+        android:textColor="@color/white"
+        android:textOff="off"
+        android:layout_gravity="end"
+        android:textOn="on"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="-100dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:theme="@style/switColor"
+        android:thumb="@drawable/thumb"
+        app:showText="true"
+        app:track="@drawable/track" />
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="150dp"
+        android:checked="false"
+        android:layout_marginRight="10dp"
+        android:layout_gravity="end"
+        android:textColor="@color/white"
+        android:textOff="@string/off"
+        android:textOn="@string/on"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:theme="@style/switColor"
+        android:thumb="@drawable/thumb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:showText="true"
+        app:track="@drawable/track" />
+
+
+</LinearLayout>
