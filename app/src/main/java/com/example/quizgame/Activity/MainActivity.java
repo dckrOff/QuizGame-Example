@@ -153,7 +153,35 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+    private void chooseLvl(){
+        switch (scienceIndex) {
+            case 1:
+                currentScience.addAll(questions.getGeographyLevel1());
 
+                break;
+            case 2:
+                currentScience.addAll(questions.getHistory());
+
+                break;
+            case 3:
+                currentScience.addAll(questions.getMath());
+
+                break;
+            case 4:
+                currentScience.addAll(questions.getBiology());
+
+                break;
+            case 5:
+                currentScience.addAll(questions.getEnglish());
+
+                break;
+            case 6:
+                currentScience.addAll(questions.getGeometry());
+
+                break;
+        }
+
+    }
     private void onBtnClick() {
         option1Btn.setOnClickListener(new View.OnClickListener() {
             @Override

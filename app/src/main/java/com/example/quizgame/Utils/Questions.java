@@ -8,14 +8,18 @@ import java.util.ArrayList;
 
 public class Questions {
 
-    private ArrayList<QuizModel> geographyLevel1,geographyLevel2, history, math, biology, english, geometry;
+    private ArrayList<QuizModel> geographyLevel1,geographyLevel2,geographyLevel3,geographyLevel4,geographyLevel5, history,history2, math, biology, english, geometry;
     ArrayList<Levels> levelsGeography;
 
     public void addScienceQuestion() {
 
         geographyLevel1 = new ArrayList<>();
         geographyLevel2 = new ArrayList<>();
+        geographyLevel3 = new ArrayList<>();
+        geographyLevel4 = new ArrayList<>();
+        geographyLevel5 = new ArrayList<>();
         history = new ArrayList<>();
+        history2 = new ArrayList<>();
         math = new ArrayList<>();
         biology = new ArrayList<>();
         english = new ArrayList<>();
@@ -33,16 +37,52 @@ public class Questions {
         geographyLevel1.add(new QuizModel("На сколько видов делятся полезные ископаемые?", "На три вида", "На две вида", "На три вида", "На семь вида", "На пять вида"));
         geographyLevel1.add(new QuizModel("В каком месте Китай среди ВВП?", "На первом", "В третьем", "На первом", "На втором", "В четвертом"));
 
-        geographyLevel2.add(new QuizModel("question1", "Египет", "Италия", "Египет", "Англия", "Македония"));
-        geographyLevel2.add(new QuizModel("question1", "Египет", "Италия", "Египет", "Англия", "Македония"));
-        geographyLevel2.add(new QuizModel("question1", "Египет", "Италия", "Египет", "Англия", "Македония"));
-        geographyLevel2.add(new QuizModel("question1", "Египет", "Италия", "Египет", "Англия", "Македония"));
-        geographyLevel2.add(new QuizModel("question1", "Египет", "Италия", "Египет", "Англия", "Македония"));
-        geographyLevel2.add(new QuizModel("question1", "Египет", "Италия", "Египет", "Англия", "Македония"));
-        geographyLevel2.add(new QuizModel("question1", "Египет", "Италия", "Египет", "Англия", "Македония"));
-        geographyLevel2.add(new QuizModel("question1", "Египет", "Италия", "Египет", "Англия", "Македония"));
-        geographyLevel2.add(new QuizModel("question1", "Египет", "Италия", "Египет", "Англия", "Македония"));
-        geographyLevel2.add(new QuizModel("question1", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel2.add(new QuizModel("question2", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel2.add(new QuizModel("question2", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel2.add(new QuizModel("question2", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel2.add(new QuizModel("question2", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel2.add(new QuizModel("question2", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel2.add(new QuizModel("question2", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel2.add(new QuizModel("question2", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel2.add(new QuizModel("question2", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel2.add(new QuizModel("question2", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel2.add(new QuizModel("question2    ", "Египет", "Италия", "Египет", "Англия", "Македония"));
+
+        geographyLevel3.add(new QuizModel("question3", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel3.add(new QuizModel("question3", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel3.add(new QuizModel("question3", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel3.add(new QuizModel("question3", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel3.add(new QuizModel("question3", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel3.add(new QuizModel("question3", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel3.add(new QuizModel("question3", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel3.add(new QuizModel("question3", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel3.add(new QuizModel("question3", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel3.add(new QuizModel("question3", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel3.add(new QuizModel("question3", "Египет", "Италия", "Египет", "Англия", "Македония"));
+
+        geographyLevel4.add(new QuizModel("question4", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel4.add(new QuizModel("question4", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel4.add(new QuizModel("question4", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel4.add(new QuizModel("question4", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel4.add(new QuizModel("question4", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel4.add(new QuizModel("question4", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel4.add(new QuizModel("question4", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel4.add(new QuizModel("question4", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel4.add(new QuizModel("question4", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel4.add(new QuizModel("question4", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel4.add(new QuizModel("question4", "Египет", "Италия", "Египет", "Англия", "Македония"));
+
+        geographyLevel5.add(new QuizModel("question5", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel5.add(new QuizModel("question5", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel5.add(new QuizModel("question5", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel5.add(new QuizModel("question5", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel5.add(new QuizModel("question5", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel5.add(new QuizModel("question5", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel5.add(new QuizModel("question5", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel5.add(new QuizModel("question5", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel5.add(new QuizModel("question5", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel5.add(new QuizModel("question5", "Египет", "Италия", "Египет", "Англия", "Македония"));
+        geographyLevel5.add(new QuizModel("question5", "Египет", "Италия", "Египет", "Англия", "Македония"));
 
 
         history.add(new QuizModel("Как называются гробницы  фараонов Древнего Египта ?", "пирамиды", "храмы", "пирамиды", "катакомбы", "гроб"));
@@ -56,6 +96,18 @@ public class Questions {
         history.add(new QuizModel("Создател переменого тока", "Никола Тесла", "Уильямом Гильбертом'", "Никола Тесла", "Андре Мари Ампер", "Чарльз Августин"));
         history.add(new QuizModel("Назовите три чудес из 7ми", "Акрополь,Пирамиды,Александрский Маяк", "Родос,Эфес,Эйфил", "Акрополь,Пирамиды,Александрский Маяк", "Олимпия,Вавилон,Храм Буды ", "Александрия Египетская,Галикарнас,Вавилон"));
         history.add(new QuizModel("Кто расшифировал (Розетский камень) ", "Шампольон", "Шампольон", "Фредрик", "Арасту", "Немо"));
+
+        history2.add(new QuizModel("Кто расшифировал (Розетский камень) ", "Шампольон", "Шампольон", "Фредрик", "Арасту", "Немо"));
+        history2.add(new QuizModel("Кто расшифировал (Розетский камень) ", "Шампольон", "Шампольон", "Фредрик", "Арасту", "Немо"));
+        history2.add(new QuizModel("Кто расшифировал (Розетский камень) ", "Шампольон", "Шампольон", "Фредрик", "Арасту", "Немо"));
+        history2.add(new QuizModel("Кто расшифировал (Розетский камень) ", "Шампольон", "Шампольон", "Фредрик", "Арасту", "Немо"));
+        history2.add(new QuizModel("Кто расшифировал (Розетский камень) ", "Шампольон", "Шампольон", "Фредрик", "Арасту", "Немо"));
+        history2.add(new QuizModel("Кто расшифировал (Розетский камень) ", "Шампольон", "Шампольон", "Фредрик", "Арасту", "Немо"));
+        history2.add(new QuizModel("Кто расшифировал (Розетский камень) ", "Шампольон", "Шампольон", "Фредрик", "Арасту", "Немо"));
+        history2.add(new QuizModel("Кто расшифировал (Розетский камень) ", "Шампольон", "Шампольон", "Фредрик", "Арасту", "Немо"));
+        history2.add(new QuizModel("Кто расшифировал (Розетский камень) ", "Шампольон", "Шампольон", "Фредрик", "Арасту", "Немо"));
+        history2.add(new QuizModel("Кто расшифировал (Розетский камень) ", "Шампольон", "Шампольон", "Фредрик", "Арасту", "Немо"));
+        history2.add(new QuizModel("Кто расшифировал (Розетский камень) ", "Шампольон", "Шампольон", "Фредрик", "Арасту", "Немо"));
 
         english.add(new QuizModel("This __ a good restaurant - Это хороший ресторан", "is", "are", "was", "is", "at"));
         english.add(new QuizModel("I __ a new student - Я новый ученик:", "am", "is", "are", "to", "am"));
@@ -123,6 +175,18 @@ public class Questions {
 
     public ArrayList<QuizModel> getGeographyLevel2() {
         return geographyLevel2;
+    }
+
+    public ArrayList<QuizModel> getGeographyLevel3() {
+        return geographyLevel3;
+    }
+
+    public ArrayList<QuizModel> getGeographyLevel4() {
+        return geographyLevel4;
+    }
+
+    public ArrayList<QuizModel> getGeographyLevel5() {
+        return geographyLevel5;
     }
 
     public ArrayList<QuizModel> getHistory() {

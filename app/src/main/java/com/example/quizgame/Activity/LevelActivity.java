@@ -1,5 +1,6 @@
 package com.example.quizgame.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -48,4 +49,40 @@ public class LevelActivity extends AppCompatActivity {
 //    private void setInitialData() {
 //        levels.add(new Levels("Угадай флаг", "Найдите флаг страны из рисунка", R.drawable.img_flag, R.drawable.star1));
 //    }
+    public void chooseLvl(int lvl){
+        Intent intent;
+        switch (lvl){
+            case 1:
+                intent = new Intent(LevelActivity.this , MainActivity.class);
+                intent.putExtra("LVL",1);
+                startActivity(intent);
+                finish();
+                break;
+            case 2:
+                intent = new Intent(LevelActivity.this, MainActivity.class);
+                intent.putExtra("LVL",2);
+                startActivity(intent);
+                finish();
+                break;
+            case 3:
+                intent = new Intent(LevelActivity.this , MainActivity.class);
+                intent.putExtra("LVL",3);
+                startActivity(intent);
+                finish();
+                break;
+            case 4:
+                intent = new Intent(LevelActivity.this , MainActivity.class);
+                intent.putExtra("LVL",4);
+                startActivity(intent);
+                finish();
+                break;
+            case 5:
+                intent = new Intent(LevelActivity.this , MainActivity.class);
+                intent.putExtra("LVL",5);
+                startActivity(intent);
+                finish();
+                break;
+        }
+
+    }
 }
